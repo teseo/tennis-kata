@@ -1,3 +1,5 @@
-/**
- * Created by javi on 02/07/16.
- */
+module.exports = function(gulp) {
+    gulp.task('watch-tennis', function () {
+        return gulp.watch(['spec/Tennis/MatchSpec.php', 'src/Tennis/Match.php'], {base: './'}, ['suite-tennis']);
+    });
+}
