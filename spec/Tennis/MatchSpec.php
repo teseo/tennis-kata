@@ -50,6 +50,13 @@ class MatchSpec extends ObjectBehavior
 
         $this->getResult()->shouldReturn('Forty-Love');
     }
+    function it_scores_0_3_game()
+    {
+        $this->playerOne->setScore(0);
+        $this->playerTwo->setScore(3);
+
+        $this->getResult()->shouldReturn('Love-Forty');
+    }
     function it_scores_3_2_game()
     {
         $this->playerOne->setScore(3);
@@ -57,5 +64,49 @@ class MatchSpec extends ObjectBehavior
 
         $this->getResult()->shouldReturn('Forty-Thirty');
     }
+    function it_scores_4_0_game()
+    {
+        $this->playerOne->setScore(4);
+        $this->playerTwo->setScore(0);
 
+        $this->getResult()->shouldReturn('Game won by Pepe');
+    }
+    function it_scores_0_4_game()
+    {
+        $this->playerOne->setScore(0);
+        $this->playerTwo->setScore(4);
+
+        $this->getResult()->shouldReturn('Game won by Juan');
+    }
+    function it_scores_4_3_game()
+    {
+        $this->playerOne->setScore(4);
+        $this->playerTwo->setScore(3);
+
+        $this->getResult()->shouldReturn('Advantage for Pepe');
+    }
+    function it_scores_4_4_game()
+    {
+        $this->playerOne->setScore(4);
+        $this->playerTwo->setScore(4);
+
+        $this->getResult()->shouldReturn('Deuce');
+
+    }
+    function it_scores_1_2_game()
+    {
+        $this->playerOne->setScore(1);
+        $this->playerTwo->setScore(2);
+
+        $this->getResult()->shouldReturn('Fifteen-Thirty');
+
+    }
+    function it_scores_8_8_in_a_long_game()
+    {
+        $this->playerOne->setScore(8);
+        $this->playerTwo->setScore(8);
+
+        $this->getResult()->shouldReturn('Deuce');
+
+    }
 }
